@@ -1,0 +1,36 @@
+.button {
+    width: 90px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    @include normal-text;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    border: none;
+    background: transparent;
+    background-image: url("/src/assets/images/ui/small-button.png");
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+
+    @include pointer-cursor;
+
+    // States
+    &.smile {
+        width: 20px;
+        height: 20px;
+        
+        background-image: url("/src/assets/images/ui/smile-button.png");
+    }
+    &.shadow {
+        filter: drop-shadow(0 0 10px #000);
+    }
+    
+    // Actions
+    &:active {
+        background-position: 100% 0;
+    }
+}

@@ -1,0 +1,8 @@
+@mixin normal-text {
+    font-size: 18px;
+    font-family: $normal-font;
+    color: $normal-text-color;
+}
+@mixin pointer-cursor {
+    cursor: url("../assets/images/ui/pointer-cursor.png") 7 0, auto !important;
+}

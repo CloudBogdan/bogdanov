@@ -1,0 +1,53 @@
+.footer {
+    width: 100%;
+    min-height: 50vh;
+    padding: 0 var(--container-paddings);
+
+    margin-top: 200px;
+    display: flex;
+    align-items: center;
+    
+    .footer-canvas {
+        width: max(50vw, 600px);
+        height: 100vh;
+
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        
+        canvas {
+            width: 100%;
+            
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+    
+    @media screen and (max-width: 800px) {
+        padding: 30px var(--container-paddings);
+        justify-content: center;
+
+        .footer-canvas {
+            right: 50%;
+            bottom: 80px;
+
+            translate: 50% 0;
+        }
+        .footer-contact {
+            flex-direction: column;
+        }
+    }
+    @media screen and (max-width: 500px) {   
+        .footer-links {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+}
+.app.mobile .footer {
+    margin-top: 220px;
+    
+    background: #000;
+}

@@ -1,0 +1,40 @@
+.graphic {
+    pointer-events: none;
+}
+canvas {
+    image-rendering: pixelated;
+}
+.vhs-overlay {
+    width: 100vw;
+    height: 100vh;
+    
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+
+    object-fit: fill;
+
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.logo {
+    width: fit-content;
+    height: fit-content;
+
+    img {
+        opacity: .2;
+        image-rendering: pixelated;
+    }
+}
+
+.game-window {
+    .game-canvas {
+        width: 100%;
+
+        canvas {
+            width: 100%;
+        }
+    }
+}

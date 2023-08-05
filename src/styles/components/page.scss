@@ -1,0 +1,40 @@
+.page {
+    width: 100%;
+    height: max-content;
+    // min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    animation: page-shake .1s infinite step-end;
+}
+.section {
+    width: 100%;
+    min-height: 100vh;
+    height: fit-content;
+
+    &.centered {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &.fit {
+        height: fit-content;
+    }
+
+    &.container {
+        padding: 0 var(--container-paddings);
+    }
+}
+
+@keyframes page-shake {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: .25px;
+    }
+    100% {
+        top: -.25px;
+    }
+}

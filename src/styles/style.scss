@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import "./fonts.scss";
+@import "./erid.scss";
+@import "./variables.scss";
+@import "./mixins.scss";
+
+* {
+    user-select: none;
+    -webkit-user-drag: none;
+
+    cursor: url("../assets/images/ui/cursor.png") 0 0, auto;
+}
+
+:root {
+    --container-paddings: 4px;
+
+    @media screen and (min-width: 500px) {
+        --container-paddings: 20px;
+    }
+    @media screen and (min-width: 700px) {
+        --container-paddings: 60px;
+    }
+    @media screen and (min-width: 1200px) {
+        --container-paddings: 160px;
+    }
+    @media screen and (min-width: 1500px) {
+        --container-paddings: 220px;
+    }
+    @media screen and (min-width: 1700px) {
+        --container-paddings: 320px;
+    }
+}
+
+body {
+    background: $app-background;
+    overflow-x: hidden;
+ 
+    @include normal-text;
+
+    &::-webkit-scrollbar-track-piece:start {
+        background-image: url("/src/assets/images/ui/smile.png");
+    }
+}
+::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
+
+    background: $window-background;
+
+    cursor: url("../assets/images/ui/cursor.png") 0 0, auto;
+}
+::-webkit-scrollbar-track {
+    background-image: url("/src/assets/images/ui/scrollbar.png");
+    background-size: 20px 20px;
+    background-position: 0 0;
+    image-rendering: pixelated;
+}
+::-webkit-scrollbar-thumb {
+    background: $window-background;
+    border: 2px solid $window-light-border;
+    border-bottom-color: $window-dark-border;
+    border-right-color: $window-dark-border;
+}
+::-webkit-scrollbar-button {
+    width: 20px;
+    height: 20px;
+    image-rendering: pixelated;
+
+    &:vertical {
+        background-image: url("/src/assets/images/ui/scrollbar-button-up.png");
+        background-size: 20px 20px;
+
+        &:increment {
+            background-image: url("/src/assets/images/ui/scrollbar-button-down.png");
+        }
+    }
+}
+
+
+@import "./components/typography.scss";
+@import "./components/misc.scss";
+@import "./components/page.scss";
+@import "./components/blocks.scss";
+@import "./components/buttons.scss";
+@import "./components/footer.scss";
+@import "./components/fancy-link.scss";
+@import "./components/loader-overlay.scss";
+
+@import "./components/home-page.scss";

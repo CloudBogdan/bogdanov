@@ -1,0 +1,124 @@
+.fancy-link {
+    width: fit-content;
+    
+    color: #00f;
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: VCR;
+    
+    @include pointer-cursor;
+
+    // Children
+    div {
+        z-index: 1;
+
+        @include pointer-cursor;
+    }
+    &::after {
+        content: attr(data-text);
+
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .pointer {
+        height: 120%;
+        
+        position: absolute;
+        left: 110%;
+        top: 50%;
+        translate: 0 -50%;
+        scale: -1 1;
+        z-index: 10;
+        
+        opacity: 0;
+
+        image-rendering: pixelated;
+        pointer-events: none;
+    }
+
+    // States
+    &.horizontal {
+        .pointer {
+            height: 140%;
+            
+            rotate: 90deg;
+            left: 50%;
+            top: 150%;
+            translate: -50% 0;
+        }
+    }
+    
+    // Actions
+    &:hover {
+        .pointer {
+            opacity: 1;
+
+            animation: fancy-link-pointer-vertical infinite .4s linear;
+        }
+        &::after {
+            animation: fancy-link-shadow infinite .4s linear;
+        }
+        div {
+            animation: fancy-link-text infinite .4s linear;
+        }
+
+        &.horizontal {
+            .pointer {
+                animation-name: fancy-link-pointer-horizontal;
+            }
+        }
+    }
+}
+@keyframes fancy-link-shadow {
+    50% {
+        text-shadow: none;
+        translate: 0 0;
+    }
+    0%, 100% {
+        text-shadow: 
+            // 1px 1px 0px hsl(135, 100, 50),
+            2px 2px 0px hsl(180, 100, 50),
+            // 3px 3px 0px hsl(90, 100, 50),
+            4px 4px 0px hsl(90, 100, 50),
+            // 5px 5px 0px hsl(45, 100, 50),
+            6px 6px 0px hsl(45, 100, 50),
+            // 7px 7px 0px hsl(0, 100, 50),
+            8px 8px 0px hsl(0, 100, 50);
+            // 1px 1px 0px hsl(0, 100, 50),
+            // 2px 2px 0px hsl(45, 100, 50),
+            // 3px 3px 0px hsl(90, 100, 50),
+            // 4px 4px 0px hsl(135, 100, 50),
+            // 5px 5px 0px hsl(180, 100, 50),
+            // 6px 6px 0px hsl(225, 100, 50),
+            // 7px 7px 0px hsl(270, 100, 50),
+            // 8px 8px 0px hsl(315, 100, 50);
+        translate: -8px -8px;
+    }
+}
+@keyframes fancy-link-text {
+    0%, 100% {
+        translate: -8px -8px;
+    }
+    50% {
+        translate: 0 0;
+    }
+}
+@keyframes fancy-link-pointer-vertical {
+    0%, 100% {
+        translate: 30% -50%;
+    }
+    50% {
+        translate: 0 -50%;
+    }
+}
+@keyframes fancy-link-pointer-horizontal {
+    0%, 100% {
+        translate: -50% 40%;
+    }
+    50% {
+        translate: -50% 0;
+    }
+}

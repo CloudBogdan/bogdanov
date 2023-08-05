@@ -1,0 +1,39 @@
+a {
+    @include pointer-cursor;
+}
+
+.crazy-title {
+    width: 50%;
+    
+    scale: 2;
+    image-rendering: pixelated;
+
+    canvas {
+        width: 100%;
+        height: auto;
+    }
+}
+.vcr-text {
+    font-family: VCR, monospace;
+}
+
+.weight-400 {
+    font-weight: 400;
+}
+.weight-600 {
+    font-weight: 600;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-gray {
+    color: $gray;
+}
+.text-black {
+    color: $black;
+}
+.text-red {
+    color: red;
+}

@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+body, html, #root, .app {
+    width: 100%;
+}
+
+$gap: 6px;
+$gap-length: 10;
+
+@for $i from 0 through $gap-length {
+    .m-#{$i} {
+        margin: $i * $gap;
+    }
+    .mr-#{$i} {
+        margin-right: $i * $gap;
+    }
+    .ml-#{$i} {
+        margin-left: $i * $gap;
+    }
+    .mt-#{$i} {
+        margin-top: $i * $gap;
+    }
+    .mb-#{$i} {
+        margin-bottom: $i * $gap;
+    }
+    .mh-#{$i} {
+        margin-right: $i * $gap;
+        margin-left: $i * $gap;
+    }
+    .mv-#{$i} {
+        margin-top: $i * $gap;
+        margin-bottom: $i * $gap;
+    }
+
+    .p-#{$i} {
+        padding: $i * $gap !important;
+    }
+    .pr-#{$i} {
+        padding-right: $i * $gap !important;
+    }
+    .pl-#{$i} {
+        padding-left: $i * $gap !important;
+    }
+    .pt-#{$i} {
+        padding-top: $i * $gap !important;
+    }
+    .pb-#{$i} {
+        padding-bottom: $i * $gap !important;
+    }
+    .ph-#{$i} {
+        padding-right: $i * $gap !important;
+        padding-left: $i * $gap !important;
+    }
+    .pv-#{$i} {
+        padding-top: $i * $gap !important;
+        padding-bottom: $i * $gap !important;
+    }
+}
+
+.flex, .col, .col-centered, .row, .row-centered {
+    display: flex;
+
+    &.flex-column {
+        flex-direction: column !important;
+    }
+    &.flex-row {
+        flex-direction: row !important;
+    }
+    &.flex-wrap {
+        flex-wrap: wrap;
+    }
+    &.flex-wrap-reverse {
+        flex-wrap: wrap-reverse;
+    }
+    &.flex-nowrap {
+        flex-wrap: nowrap;
+    }
+
+    &.justify-start {
+        justify-content: flex-start;
+    }
+    &.justify-end {
+        justify-content: flex-end;
+    }
+    &.justify-center {
+        justify-content: center;
+    }
+    &.justify-between {
+        justify-content: space-between;
+    }
+    
+    &.items-start {
+        align-items: flex-start;
+    }
+    &.items-end {
+        align-items: flex-end;
+    }
+    &.items-center {
+        align-items: center;
+    }
+
+    @for $i from 0 through $gap-length {
+        &.gap-#{$i} {
+            gap: $gap * $i;
+        }
+    }
+
+}
+.col, .col-centered {
+    @extend .flex-column;
+}
+.row-centered, .col-centered {
+    align-items: center;
+}
+.self-start {
+    align-self: flex-start;
+}
+.self-end {
+    align-self: flex-end;
+}
+.self-center {
+    align-self: center;
+}
+.jus-self-start {
+    justify-self: flex-start;
+}
+.jus-self-end {
+    justify-self: flex-end;
+}
+.jus-self-center {
+    justify-self: center;
+}
+
+.width-fill {
+    width: 100% !important;
+}
+.height-fill {
+    height: 100% !important;
+}
+.width-fit {
+    width: fit-content;
+}
+.height-fit {
+    height: fit-content;
+}
+.width-min {
+    width: min-content;
+}
+.height-min {
+    height: min-content;
+}
+.size-fill {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.text-align-center {
+    text-align: center;
+}
+.text-align-right {
+    text-align: right;
+}
+.text-align-left {
+    text-align: left;
+}
