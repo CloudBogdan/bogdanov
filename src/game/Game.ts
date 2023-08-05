@@ -1,10 +1,10 @@
 import * as PIXI from "pixi.js";
 import FramedSprite from "../classes/FramedSprite";
 import SpriteGroup from "../classes/SpriteGroup";
-import ImportUtils from "../utils/ImportUtils";
 import { FallingObjectName } from "../animations/background/ObjectsFallingAnimation";
 import Random from "../utils/Random";
 import vcr_font from "../assets/fonts/vcr.ttf";
+import { OBJECTS_SOURCES } from "../utils/Assets";
 
 const decayShaderFrag = /*glsl*/ `
     varying vec2 vTextureCoord;
@@ -188,7 +188,6 @@ class Enemy extends FramedSprite {
     decayFilter = new PIXI.Filter(undefined, decayShaderFrag, { uFactor: 0 });
     
     constructor(name: FallingObjectName) {
-        const path = ImportUtils.importImage(`/src/assets/images/objects/${ name }.png`);
         let width = 128;
         let height = 128;
 
@@ -197,7 +196,7 @@ class Enemy extends FramedSprite {
         else if (name == "book")
             height = 192;
         
-        super(PIXI.Texture.from(path), width, height);
+        super(PIXI.Texture.from(OBJECTS_SOURCES[name]), width, height);
 
         this.frames = [0, 1, 2, 3, 4, 5, 6, 7];
         

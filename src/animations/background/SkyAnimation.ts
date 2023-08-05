@@ -1,14 +1,10 @@
 import * as PIXI from "pixi.js";
 import Random from "../../utils/Random";
 import { gsap } from "gsap";
-import ImportUtils from "../../utils/ImportUtils";
 import SpriteGroup from "../../classes/SpriteGroup";
 import AppAnimation from "./../AppAnimation";
 import rainbow_img from "../../assets/images/rainbow.png";
-
-const SMALL_CLOUDS_COUNT = 7;
-const LARGE_CLOUDS_COUNT = 9;
-const RAIN_PARTICLES_COUNT = 5;
+import { LARGE_CLOUDS_SOURCES, RAIN_PARTICLES_SOURCES, SMALL_CLOUDS_SOURCES } from "../../utils/Assets";
 
 const CLEAR_SKY_COLOR = "#4474ce";
 const RAINY_SKY_COLOR = "#a9a9af";
@@ -178,7 +174,7 @@ export default class SkyAnimation {
     }
 
     static spawnCloud(): Cloud {
-        const cloud = new Cloud(.6);
+        const cloud = new Cloud();
         
         if (Random.bool()) {
             cloud.moveX = -cloud.width;
@@ -212,9 +208,7 @@ class RainParticle extends PIXI.Sprite {
     speed: number = Random.float(1, 2);
     
     constructor() {
-        const path = ImportUtils.importImage(`/src/assets/images/rain/particle-${ Random.int(1, RAIN_PARTICLES_COUNT) }.png`)
-        
-        super(PIXI.Texture.from(path));
+        super(PIXI.Texture.from(Random.item(RAIN_PARTICLES_SOURCES)));
 
         this.alpha = Random.float(.5, .8);
     }
@@ -242,14 +236,9 @@ class Cloud extends PIXI.Sprite {
 
     darkenFilter: PIXI.Filter = new PIXI.Filter(undefined, darkenShaderFrag);
     
-    constructor(largeChance: number) {
-        const basePath = "/src/assets/images/clouds/"
-        let path = ImportUtils.importImage(basePath + `small/small-cloud-${ Random.int(1, SMALL_CLOUDS_COUNT) }.png`);
-
-        if (Random.bool(largeChance))
-            path = ImportUtils.importImage(basePath + `large/large-cloud-${ Random.int(1, LARGE_CLOUDS_COUNT) }.png`);
-        
-        super(PIXI.Texture.from(path));
+    constructor() {
+        const sources = [...LARGE_CLOUDS_SOURCES, ...SMALL_CLOUDS_SOURCES];
+        super(PIXI.Texture.from(Random.item(sources)));
         
         this.scale.set(Random.float(1.6, 2));
         this.scale.set(this.scale.x * Random.sign(), this.scale.y * Random.sign());

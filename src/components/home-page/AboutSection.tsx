@@ -17,11 +17,18 @@ const AboutSection: Solid.Component = ()=> {
         <Section class="container row flex-wrap-reverse items-end justify-center gap-4">
         
             <div class="col-centered gap-4 width-fill" style={{ flex: "1 0 0" }}>
-                <Window95 title="I like, I hate...">
+                <Window95 title="Hey">
                     <code class="window-content" onClick={ ()=> alert("You don't have permissions to edit this!") }>
-                        I like listening to music, I like pizza, I like winter, I like rain, I love my mom, I like javascript, I love your mom
+                        I like listening to music and pizza. Also I like your mom {"<3"}
                         <br /><br />
-                        I hate spring, I hate noise, I hate hot weather, I hate the internet
+                        This site is using Solid js, GSAP and Pixi js! Very cool
+                        <br />
+                        {"      __   _   "}<br />
+                        {"    _(  )_( )_ "}<br />
+                        {"   (_   _    _)"}<br />
+                        {"  / /(_) (__)  "}<br />
+                        {" / / / / / /   "}<br />
+                        {"/ / / / / /    "}
                     </code>
                 </Window95>
                 

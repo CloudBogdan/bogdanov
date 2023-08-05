@@ -11,7 +11,7 @@ const App: Solid.Component = () => {
     scrollTo(0, 0);
     
     addEventListener("DOMContentLoaded", ()=> {
-        console.log("Loaded!")
+        console.log("Loaded!");
     })
     
     return (

@@ -1,9 +1,9 @@
 import * as PIXI from "pixi.js";
-import ImportUtils from "../../utils/ImportUtils";
 import Random from "../../utils/Random";
 import SpriteGroup from "../../classes/SpriteGroup";
 import AppAnimation from "../AppAnimation";
 import FramedSprite from "../../classes/FramedSprite";
+import { OBJECTS_SOURCES } from "../../utils/Assets";
 
 export type FallingObjectName = "tape" | "clock" | "uno-red" | "uno-blue" | "disk" | "lighter" | "book" | "paper-piece" | "battery";
 
@@ -50,7 +50,6 @@ class FallingObject extends FramedSprite {
     time: number = 0;
     
     constructor(name: FallingObjectName) {
-        const path = ImportUtils.importImage(`/src/assets/images/objects/${ name }.png`);
         let width = 128;
         let height = 128;
 
@@ -59,7 +58,7 @@ class FallingObject extends FramedSprite {
         else if (name == "book")
             height = 192;
         
-        super(PIXI.Texture.from(path), width, height);
+        super(PIXI.Texture.from(OBJECTS_SOURCES[name]), width, height);
 
         this.frames = [0, 1, 2, 3, 4, 5, 6, 7];
         
